@@ -141,8 +141,8 @@ function renderBooks(data) {
 }
 
 function getBooks() {
-    const booksList = JSON.parse(localStorage.getItem('bookList')) || [];
-    return booksList;
+    const bookList = JSON.parse(localStorage.getItem('bookList')) || [];
+    return bookList;
 }
 
 function saveBook(data) {
@@ -205,8 +205,8 @@ function handleAddBtn() {
 }
 
 function handleEditBtn(index) {
-        const booksList = getBooks()
-        const bookToEdit = booksList[index];
+        const bookList = getBooks()
+        const bookToEdit = bookList[index];
         const editForm = `
             <form action="" class="dialog-form">
                 <div class="dialog-form_field">
@@ -248,9 +248,9 @@ function handleEditBtn(index) {
             bookToEdit.author = editedAuthor;
             bookToEdit.topic = optionsTopic;
 
-            saveBook(booksList);
+            saveBook(bookList);
 
-            renderBooks(booksList);
+            renderBooks(bookList);
 
             editDialog.close();
         });
