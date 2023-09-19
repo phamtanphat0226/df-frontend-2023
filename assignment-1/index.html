@@ -1,14 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Bookstore</title>
+    <script src="https://kit.fontawesome.com/f4c7fa77d1.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
-    Hello world
+    <div id="app">
+        <header id="header">
+          <section class="header_logo">
+            <a href="#" class="header_logo-link">
+              <img src="./assets/img/dwarves-foundation-logo.png" alt="" class="header_logo-img">
+            </a>
+          </section>  
+          <section class="header_account">
+            <img src="./assets/img/avatar.jpg" alt="Bookstore Image" class="header_account-avatar">
+            <p class="header_account-name">Phat Pham</p>
+          </section>
+        </header>
+        <main id="container">
+          <header class="container_heading">
+            <h1 class="container_heading-title">Book List</h1>
+            <div>
+              <input type="text" class="container_heading-search" placeholder="Search book">
+              <button class="btn btn-primary container_heading-add-btn">Add book</button>
+            </div>
+          </header>
+          <section class="container_content">
+            <table class="content_table">
+                <thead class="table_header">
+                  <tr class="table_row">
+                    <th class="table_heading table_heading">Name</th>
+                    <th class="table_heading table_heading">Author</th>
+                    <th class="table_heading table_heading">Topic</th>
+                    <th class="table_heading table_heading">Action</th>
+                  </tr>
+                </thead>
+                <tbody class="table_body"></tbody>
+            </table>
+            
+          </section>
+        </main>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
