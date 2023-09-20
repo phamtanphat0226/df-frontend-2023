@@ -1,0 +1,13 @@
+@import "normalize.css";
+
+:root {
+    --primary-color: #e13f5e  ;
+    --light-primary-color: #eb9caf;
+    --black-color:#000000;
+    --white-color: #fff;
+    --light-gray-color: #ccc;
+    --lavender-blush-color: #fff0f5;
+    --red-color: #E10600;
+    --blue-color: #071952;
+    --text-color: #666;
+  }
