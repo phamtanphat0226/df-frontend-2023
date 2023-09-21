@@ -3,14 +3,16 @@
 
 :root {
     --primary-color: #e13f5e  ;
-    --sub-primary-color: #eb9caf;
     --black-color:#000000;
     --header-bg-color: #fff;
-    --light-gray-color: #ccc;
-    --lavender-blush-color: #fff0f5;
-    --red-color: #E10600;
-    --blue-color: #071952;
+    --bg-color: #fff0f5;
     --text-color: #666;
+
+    --lavenderblush-color: #fff0f5;
+    --white-color: white;
+    --light-gray-color: #ccc;
+    --red-color: #E10600;
+    --warn-color:#ffc107;
 }
 
 html {
