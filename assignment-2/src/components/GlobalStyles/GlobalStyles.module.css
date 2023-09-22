@@ -3,7 +3,6 @@
 
 :root {
     --primary-color: #e13f5e  ;
-    --black-color:#000000;
     --header-bg-color: #fff;
     --bg-color: #fff0f5;
     --text-color: #666;
@@ -13,6 +12,14 @@
     --light-gray-color: #ccc;
     --red-color: #E10600;
     --warn-color:#ffc107;
+    --black-color:#000000;
+}
+
+[theme="dark"] {
+    --primary-color: #e13f5e  ;
+    --header-bg-color: #232b2b;
+    --bg-color: #3b444b;
+    --text-color: white;
 }
 
 html {
@@ -22,4 +29,5 @@ html {
 
 body {
     font-family: inherit;
+    background-color: var(--bg-color);
 }

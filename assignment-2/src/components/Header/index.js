@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.css';
 import images from '../../assets/images'
 import ToggleButton from '../ToggleButton';
+import DarkMode from '../../features/DarkMode';
 
 
 function Header() {
@@ -20,7 +21,7 @@ function Header() {
         </div>  
       </section>
       <section className='header-right'>
-        <ToggleButton />
+        <DarkMode />
         <div className="header__account">
           <img src={images.avatar} className="header__account-avatar" />
           <p className="header__account-name">Phat Pham</p>

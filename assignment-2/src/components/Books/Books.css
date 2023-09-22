@@ -1,6 +1,6 @@
 #container {
     margin: 92px 20px 0;
-  
+    background-color: var(--bg-color);
   }
   
 .container__heading {
