@@ -1,9 +1,10 @@
 import React from 'react';
 import './Input.css';
 
-function Input({label, placeholder,value , onChange}) {
+function Input({label, placeholder, value , onChange ,}) {
   return (
-    <label >{label}
+    <>
+      <label >{label}</label>
       <input
         className='input'
         placeholder={placeholder}
@@ -11,7 +12,8 @@ function Input({label, placeholder,value , onChange}) {
         onChange={onChange} 
         
         />
-    </label>
+    </>
+    
   )
 }
 

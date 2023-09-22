@@ -4,8 +4,9 @@
 :root {
     --primary-color: #e13f5e  ;
     --header-bg-color: #fff;
-    --bg-color: #fff0f5;
+    --bg-color: white;
     --text-color: #666;
+    --logo-text-color: #23252c;
 
     --lavenderblush-color: #fff0f5;
     --white-color: white;
@@ -17,9 +18,12 @@
 
 [theme="dark"] {
     --primary-color: #e13f5e  ;
-    --header-bg-color: #232b2b;
-    --bg-color: #3b444b;
+    --header-bg-color: #141414;
+    --bg-color: #141414;
+
+    --body-color: #0a0a0a;
     --text-color: white;
+    --logo-text-color: white;
 }
 
 html {
@@ -29,5 +33,5 @@ html {
 
 body {
     font-family: inherit;
-    background-color: var(--bg-color);
+    background-color: var(--body-color);
 }

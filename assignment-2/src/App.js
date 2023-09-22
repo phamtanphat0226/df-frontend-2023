@@ -1,11 +1,12 @@
-import BookList from './components/Books';
+
 import Header from './components/Header';
+import TableBooks from "./components/TableBooks"
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <BookList />
+      <TableBooks />
     </div>
   );
 }

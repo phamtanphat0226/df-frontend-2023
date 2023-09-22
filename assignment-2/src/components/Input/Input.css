@@ -1,3 +1,8 @@
+.label {
+    display: block;
+    margin-bottom: 10px;
+}
+
 .input {
     padding: 10px;
     margin-right: 14px;
@@ -5,6 +10,8 @@
     width: 300px;
   
     border-radius: 18px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
     border: 1px solid var(--light-gray-color);
     outline: none;
 }
