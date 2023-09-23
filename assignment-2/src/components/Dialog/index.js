@@ -2,14 +2,26 @@ import React, {
     useState,
     useEffect,
     forwardRef,
-    useRef,
     useImperativeHandle
 } from 'react';
 import './Dialog.css'
 import Button from '../Button';
+import Form from '../Form';
 
-const Dialog = forwardRef(({ type, content = '', options = {} }, ref) => {
+const Dialog = forwardRef(({ type, options = {} }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [receivedFormData, setReceivedFormData] = useState(null);
+
+  useEffect(() => {
+    const formDataChangedListener = (event) => {
+      setReceivedFormData(event.detail);
+    };
+    window.addEventListener('formDataChanged', formDataChangedListener);
+
+    return () => {
+      window.removeEventListener('formDataChanged', formDataChangedListener);
+    };
+  }, []);
 
   const {
     title = "Dialog",
@@ -17,7 +29,18 @@ const Dialog = forwardRef(({ type, content = '', options = {} }, ref) => {
     cancelLabel = "Cancel",
     allowClickOut = true,
   } = options;
-  
+
+  const dialogContent = () => {
+    if (type === 'confirm') {
+      return `<h3>Do you want to delete this book?</h3>`
+    } else if (type === 'addBookForm') {
+      return <Form />
+    } else if (type === 'editBook') {
+      return ""
+    } else {
+      return null;
+    }
+  };
 
   const handleOpen = () => {
       setIsOpen(true);
@@ -28,7 +51,11 @@ const Dialog = forwardRef(({ type, content = '', options = {} }, ref) => {
   };
 
   const handleSubmit = () => {
-      handleClose();
+   
+    if (receivedFormData) {
+      console.log(receivedFormData);
+    }
+    handleClose();
   };
 
   const handleCancel = () => {
@@ -72,11 +99,11 @@ const Dialog = forwardRef(({ type, content = '', options = {} }, ref) => {
                 <h3>{title}</h3>
               </header>
             )}
-            <section className="container__body">{content}</section>
+            <section className="container__body">{dialogContent()}</section>
             <section className="container__footer">
             <Button label={cancelLabel} onClick={handleCancel}  />
             {submitLabel && (
-            <Button label={submitLabel} onClick={handleSubmit} primary />
+            <Button label={submitLabel} onClick={handleSubmit} type="submit" primary />
             )}
             </section>
           </div>

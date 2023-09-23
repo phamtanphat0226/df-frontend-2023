@@ -1,17 +1,26 @@
-import React, { createRef, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
+
+import useLocalStorage from '../../hooks/useLocalStorage';
 import './Books.css'
 import Button from '../Button';
 import Input from '../Input';
 import TableBooksHead from './TableBooksHead';
-import BooksTable from './TableBooksBody';
 import Dialog from '../Dialog';
-import Form from '../Form';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 
 function BookList() {
   const dialogRef = useRef()
+  const [books, addbooks, editbooks, deletebooks] = useLocalStorage("bookList", [
+    {
+      name: "123",
+      author: "123",
+      topic: "133"
+    }
+  ])
 
-  
   return (
     <main id="container">
           <header className="container__heading">
@@ -24,19 +33,31 @@ function BookList() {
           <section className="container__content">
             <table className="content__table">
               <TableBooksHead />
-              <BooksTable />
+              <tbody className="table__body">
+              {books.map((book, index) => {
+                return (
+                <tr className="table__row" key={index}>
+                  <td className="table__data">{book.name}</td>
+                  <td className="table__data">{book.author}</td>
+                  <td className="table__data">{book.topic}</td>
+                  <td className="table__data">
+                      <Button label={<FontAwesomeIcon icon={faPenToSquare} />} small warn />
+                      <Button label={<FontAwesomeIcon icon={faTrash} />} small danger />
+                  </td>
+                </tr>  
+                )
+              })}  
+            </tbody>
             </table>
             
       </section>
       <Dialog
-        type="formAdd"
+        type="addBookForm"
         ref={dialogRef}
-        content={<Form />}
-        
         options={{
           title: "Add book",
-          submitLabel: "Đồng ý",
-          cancelLabel: "Hủy",
+          submitLabel: "Submit",
+          cancelLabel: "Cancel",
           allowClickOut: true,
         }} 
         

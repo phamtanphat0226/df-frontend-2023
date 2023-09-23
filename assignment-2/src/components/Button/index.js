@@ -2,7 +2,7 @@ import React from 'react'
 import clxs from 'clsx'
 import styles from './Button.module.css'
 
-function Button({ label, primary, danger, warn, link, small, large , onClick}) {
+function Button({type, label, primary, danger, warn, link, small, large , onClick}) {
 
     const classes = clxs(styles.btn, {
         [styles.primary]: primary,
@@ -14,7 +14,7 @@ function Button({ label, primary, danger, warn, link, small, large , onClick}) {
     })
 
     return <button
-        className={classes} onClick={onClick}
+        className={classes} onClick={onClick} type={type}
     >
         {label}
     </button>
