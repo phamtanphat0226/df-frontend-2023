@@ -8,55 +8,59 @@ import React, {
 import './Dialog.css'
 import Button from '../Button';
 
-const Dialog = forwardRef(({ content = '', options = {} }, ref) => {
-    const [isOpen, setIsOpen] = useState(false);
+const Dialog = forwardRef(({ type, content = '', options = {} }, ref) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-    const {
+  const {
     title = "Dialog",
     submitLabel = "Submit",
     cancelLabel = "Cancel",
     allowClickOut = true,
-    } = options;
+  } = options;
+  
 
-    const handleOpen = () => {
-        setIsOpen(true);
-    };
+  const handleOpen = () => {
+      setIsOpen(true);
+  };
 
-    const handleClose = () => {
-        setIsOpen(false);
-    };
+  const handleClose = () => {
+      setIsOpen(false);
+  };
 
-    const handleSubmit = () => {
-        handleClose();
-    // Xử lý khi người dùng nhấn Submit
-    };
+  const handleSubmit = () => {
+      handleClose();
+  };
 
-    const handleCancel = () => {
-        handleClose();
-    // Xử lý khi người dùng nhấn Cancel
-    };
+  const handleCancel = () => {
+      handleClose();
+  };
 
-    useEffect(() => {
-    const handleClickOut = (e) => {
-        if (allowClickOut && e.target.classList.contains('dialog')) {
-        handleClose();
-        }
-    };
+  useEffect(() => {
+  const handleClickOut = (e) => {
+      if (allowClickOut && e.target.classList.contains('dialog')) {
+      handleClose();
+      }
+  };
 
-    if (isOpen) {
-        document.addEventListener('click', handleClickOut);
-    } else {
-        document.removeEventListener('click', handleClickOut);
-    }
+  if (isOpen) {
+      document.addEventListener('click', handleClickOut);
+  } else {
+      document.removeEventListener('click', handleClickOut);
+  }
 
-    return () => {
-        document.removeEventListener('click', handleClickOut);
-    };
-    }, [isOpen, allowClickOut]);
+  return () => {
+      document.removeEventListener('click', handleClickOut);
+  };
+  }, [isOpen, allowClickOut]);
 
-    useImperativeHandle(ref, () => ({
-        handleOpen,
-    }));
+
+  
+
+  useImperativeHandle(ref, () => ({
+      handleOpen,
+  }));
+
+
 
   return (
     <>
@@ -70,9 +74,9 @@ const Dialog = forwardRef(({ content = '', options = {} }, ref) => {
             )}
             <section className="container__body">{content}</section>
             <section className="container__footer">
-            <Button label={cancelLabel} onClick={handleCancel} />
+            <Button label={cancelLabel} onClick={handleCancel}  />
             {submitLabel && (
-            <Button label={submitLabel} onClick={handleSubmit} />
+            <Button label={submitLabel} onClick={handleSubmit} primary />
             )}
             </section>
           </div>

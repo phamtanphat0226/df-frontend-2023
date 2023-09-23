@@ -42,6 +42,7 @@ background-color: var(--warn-color);
 }
 
 .link{
+  color: var(--text-color);
 text-decoration: underline;
 } 
 

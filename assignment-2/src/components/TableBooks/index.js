@@ -5,11 +5,12 @@ import Input from '../Input';
 import TableBooksHead from './TableBooksHead';
 import BooksTable from './TableBooksBody';
 import Dialog from '../Dialog';
-import FormDialog from '../Dialog/FormDialog';
+import Form from '../Form';
 
 
 function BookList() {
   const dialogRef = useRef()
+
   
   return (
     <main id="container">
@@ -27,10 +28,11 @@ function BookList() {
             </table>
             
       </section>
-       <Dialog
+      <Dialog
+        type="formAdd"
         ref={dialogRef}
-        content={<FormDialog/>}
-    
+        content={<Form />}
+        
         options={{
           title: "Add book",
           submitLabel: "Đồng ý",
